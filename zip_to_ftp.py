@@ -1133,7 +1133,11 @@ class ZipToFtpApp:
                             self.tree_queued.item(iid, values=vals)
                     self.root.after(0, _set_up_rar_stream)
 
-                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    si = subprocess.STARTUPINFO()
+                    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                    si.wShowWindow = subprocess.SW_HIDE
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                            startupinfo=si, creationflags=subprocess.CREATE_NO_WINDOW)
                     try:
                         ftp.storbinary(f"STOR {dest_path}", proc.stdout, blocksize=1048576, callback=block_callback)
                         proc.wait(timeout=10)
@@ -1177,7 +1181,11 @@ class ZipToFtpApp:
                         else:
                             raise Exception("❌ No binary for RAR extraction.")
                         
-                        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                        si = subprocess.STARTUPINFO()
+                        si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                        si.wShowWindow = subprocess.SW_HIDE
+                        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                                                startupinfo=si, creationflags=subprocess.CREATE_NO_WINDOW)
                         while proc.poll() is None:
                             if self.cancel_event.is_set():
                                 proc.kill()
