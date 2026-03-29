@@ -2,7 +2,7 @@
 
 **PSZIP** is a high-performance Python application designed to stream files directly from ZIP or RAR archives to an FTP server without ever extracting them to your local disk. It is ideal for uploading large gaming assets or updates where disk space is limited or speed is prioritized.
 
-![PSZIP Demo](https://placehold.co/800x450?text=PSZIP+Interface+Preview)
+![PSZIP Interface Preview](docs/preview.png)
 
 ## 🚀 Key Features
 
