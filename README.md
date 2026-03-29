@@ -43,7 +43,7 @@ PSZIP detects and loads translation keys dynamically from `i18n_zip_ftp.json`. Y
 
 ## 👨‍💻 Author
 
-Developed by **@locuranet2**
+Developed by **Eduardo B** (@locuranet2)
 
 ## ⚖️ License
 

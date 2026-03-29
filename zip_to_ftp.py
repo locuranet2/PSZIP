@@ -199,7 +199,7 @@ class ZipToFtpApp:
         return zipfile.ZipFile
 
     def setup_ui(self):
-        self.root.title("ZIP/RAR to FTP Streamer (Pro Edition) by @locuranet2")
+        self.root.title("PSZIP: ZIP/RAR to FTP Streamer (Pro Edition) by Eduardo B")
         pad = {'padx': 10, 'pady': 5}
         
         # --- File Selection (Sección 1) ---
